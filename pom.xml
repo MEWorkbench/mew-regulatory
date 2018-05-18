@@ -1,0 +1,14 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>pt.uminho.ceb.biosystems</groupId>
+  <artifactId>mew-regulatory</artifactId>
+  <version>3.0.0</version>
+  <name>mew-regulatory</name>
+  <description>Regulatory features for optflux</description>
+  <packaging>pom</packaging>
+  <modules>
+  	<module>mew-regulatory-core</module>
+  	<module>mew-regulatory-simulation</module>
+  	<module>mew-regulatory-optimization</module>
+  </modules>
+</project>
