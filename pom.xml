@@ -11,4 +11,23 @@
   	<module>mew-regulatory-simulation</module>
   	<module>mew-regulatory-optimization</module>
   </modules>
+  
+  	<repositories>
+		<repository>
+			<id>snapshots</id>
+			<name>maven snapshots repo</name>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</repository>
+	</repositories>
+
+	<distributionManagement>
+		<repository>
+			<id>oss.sonatype.org</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+		<snapshotRepository>
+			<id>oss.sonatype.org</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
 </project>
