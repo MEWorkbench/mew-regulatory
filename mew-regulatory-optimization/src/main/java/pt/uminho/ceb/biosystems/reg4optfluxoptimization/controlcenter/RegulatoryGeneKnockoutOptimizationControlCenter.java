@@ -72,7 +72,6 @@ import pt.uminho.ceb.biosystems.mew.core.strainoptimization.strainoptimizational
 import pt.uminho.ceb.biosystems.mew.core.strainoptimization.strainoptimizationalgorithms.jecoli.ea.JecoliEACSOMConfig;
 import pt.uminho.ceb.biosystems.mew.core.strainoptimization.strainoptimizationalgorithms.jecoli.sa.JecoliSACSOMConfig;
 import pt.uminho.ceb.biosystems.mew.core.strainoptimization.strainoptimizationalgorithms.jecoli.spea2.JecoliSPEAIICSOMConfig;
-import pt.uminho.ceb.biosystems.mew.solvers.SolverType;
 import pt.uminho.ceb.biosystems.reg4optfluxcore.integratedmodel.model.IIntegratedStedystateModel;
 import pt.uminho.ceb.biosystems.reg4optfluxoptimization.components.configuration.RegulatoryGenericConfiguration;
 import pt.uminho.ceb.biosystems.reg4optfluxoptimization.components.decoders.RegulatoryGenesKnockoutDecoder;
@@ -132,7 +131,7 @@ public class RegulatoryGeneKnockoutOptimizationControlCenter {
 			boolean variableSize,
 			int maxSolutionSize, 
 			AlgorithmTypeEnum optimizationMethod,
-			SolverType solver, 
+			String solver, 
 			List<String> notAllowedIDs,
 			EnvironmentalConditions environmentalConditions,
 			IConfiguration<IElementsRepresentation<?>> algorithmConfiguration,
@@ -532,7 +531,7 @@ public class RegulatoryGeneKnockoutOptimizationControlCenter {
 		
 		
 		
-		/**
+		/*
 		 * Computes a reference flux distribution for over/under expression problems. <br>
 		 * 
 		 * @param simulationMethod the method to be used in the computation of the flux distribution

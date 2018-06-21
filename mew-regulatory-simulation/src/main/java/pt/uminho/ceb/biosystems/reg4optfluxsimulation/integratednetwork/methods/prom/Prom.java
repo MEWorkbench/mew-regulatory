@@ -43,7 +43,6 @@ import com.google.common.collect.Multimap;
 import jbiclustge.datatools.expressiondata.dataset.ExpressionData;
 import jbiclustge.datatools.expressiondata.transformdata.normalization.QuantileNormalization;
 import pt.ornrocha.arrays.MTUArrayUtils;
-import pt.ornrocha.logutils.MTULogUtils;
 import pt.ornrocha.mathutils.MTUStatisticsUtils;
 import pt.uminho.ceb.biosystems.mew.core.model.components.EnvironmentalConditions;
 import pt.uminho.ceb.biosystems.mew.core.model.components.Gene;
@@ -63,7 +62,8 @@ import pt.uminho.ceb.biosystems.mew.core.simulation.formulations.exceptions.Mana
 import pt.uminho.ceb.biosystems.mew.core.simulation.formulations.exceptions.MandatoryPropertyException;
 import pt.uminho.ceb.biosystems.mew.core.simulation.formulations.exceptions.PropertyCastException;
 import pt.uminho.ceb.biosystems.mew.core.simulation.fva.FBAFluxVariabilityAnalysisNew;
-import pt.uminho.ceb.biosystems.mew.solvers.SolverType;
+import pt.uminho.ceb.biosystems.mew.solvers.SolverFactory;
+import pt.uminho.ceb.biosystems.mew.solvers.builders.CLPSolverBuilder;
 import pt.uminho.ceb.biosystems.mew.solvers.lp.LPConstraint;
 import pt.uminho.ceb.biosystems.mew.solvers.lp.LPConstraintType;
 import pt.uminho.ceb.biosystems.mew.solvers.lp.LPProblem;
@@ -213,12 +213,12 @@ public class Prom extends AbstractSSBasicSimulation<LPProblem> implements IInteg
 
 
     @Override
-	public SolverType getSolverType() throws PropertyCastException, MandatoryPropertyException {
-    	SolverType solverType =SolverType.CLP;
+	public String getSolverType() throws PropertyCastException, MandatoryPropertyException {
+    	String solverType =CLPSolverBuilder.ID;
     	try {
-			solverType = (SolverType) ManagerExceptionUtils.testCast(properties, SolverType.class, SimulationProperties.SOLVER, false);
+			solverType = (String) ManagerExceptionUtils.testCast(properties, String.class, SimulationProperties.SOLVER, false);
 		} catch (Exception e) {
-			return SolverType.CLP;
+			return solverType;
 		}
 		
 		return solverType;
@@ -923,9 +923,9 @@ public class Prom extends AbstractSSBasicSimulation<LPProblem> implements IInteg
 		LPProblem p=getProblem();
 		
 		LPSolution solution =null;
-		SolverType solverType = getSolverType();
+		String solverType = getSolverType();
 		try {
-		  _solver=solverType.lpSolver(p);
+		  _solver= SolverFactory.getInstance().lpSolver(solverType, p);
 		   solution = _solver.solve();
 		} catch (Exception e) {
 			throw e;
@@ -952,8 +952,8 @@ public class Prom extends AbstractSSBasicSimulation<LPProblem> implements IInteg
 	protected void initProblem(){
 		initVariables();
 		this.p=getProblem();
-		SolverType solverType = getSolverType();
-		_solver=solverType.lpSolver(p);
+		String solverType = getSolverType();
+		 _solver= SolverFactory.getInstance().lpSolver(solverType, p);
 		
 		LPSolution solution = _solver.solve();
 		this.initsolution=convertLPSolutionToSimulationSolution(solution);
@@ -1411,7 +1411,7 @@ public class Prom extends AbstractSSBasicSimulation<LPProblem> implements IInteg
 				}
 			}
 			
-			if(gprrule.getRule().evaluate(environment).getBooleanValue()==false)
+			if(((Boolean)gprrule.getRule().evaluate(environment).getValue())==false)
 				return true;
 			else
 				return false;	

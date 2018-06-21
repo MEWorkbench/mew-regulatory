@@ -343,7 +343,7 @@ public class ConditionalIntegratedNetworkSimulation extends AbstractIntegratedNe
 			else{
 				if(rule.getRootNode()!=null){
 					
-					boolean value = rule.evaluate(environment).getBooleanValue();
+					boolean value = (Boolean)rule.evaluate(environment).getValue();
 					iteration.add(value);
 				}
 				else

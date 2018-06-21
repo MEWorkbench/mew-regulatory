@@ -28,7 +28,6 @@ import pt.uminho.ceb.biosystems.mew.core.model.components.EnvironmentalCondition
 import pt.uminho.ceb.biosystems.mew.core.model.steadystatemodel.ISteadyStateModel;
 import pt.uminho.ceb.biosystems.mew.core.simulation.formulations.exceptions.MandatoryPropertyException;
 import pt.uminho.ceb.biosystems.mew.core.simulation.formulations.exceptions.PropertyCastException;
-import pt.uminho.ceb.biosystems.mew.solvers.SolverType;
 import pt.uminho.ceb.biosystems.mew.utilities.datastructures.map.indexedhashmap.IndexedHashMap;
 import pt.uminho.ceb.biosystems.reg4optfluxsimulation.integratednetwork.components.IntegratedSimulationMethod;
 import pt.uminho.ceb.biosystems.reg4optfluxsimulation.integratednetwork.components.RegulatoryGeneticConditions;
@@ -45,7 +44,7 @@ public class DynamicRFBAControlCenter extends TwoStepIntegratedSimulationControl
 
 	public DynamicRFBAControlCenter(ISteadyStateModel model, EnvironmentalConditions environmentalConditions,
 			RegulatoryGeneticConditions geneticConditions,
-			SolverType solver,
+			String solver,
 			double initialbiomass,
 			double timestep,
 			int numbersteps,

@@ -30,7 +30,8 @@ import pt.uminho.ceb.biosystems.mew.core.model.steadystatemodel.ISteadyStateMode
 import pt.uminho.ceb.biosystems.mew.core.simulation.components.GeneChangesList;
 import pt.uminho.ceb.biosystems.mew.core.simulation.components.SimulationSteadyStateControlCenter;
 import pt.uminho.ceb.biosystems.mew.core.simulation.components.SteadyStateSimulationResult;
-import pt.uminho.ceb.biosystems.mew.solvers.SolverType;
+import pt.uminho.ceb.biosystems.mew.solvers.builders.CLPSolverBuilder;
+import pt.uminho.ceb.biosystems.mew.solvers.builders.GLPKBinSolverBuilder;
 import pt.uminho.ceb.biosystems.mew.solvers.lp.LPProblem;
 import pt.uminho.ceb.biosystems.mew.solvers.lp.MILPProblem;
 import pt.uminho.ceb.biosystems.mew.solvers.qp.QPProblem;
@@ -46,7 +47,6 @@ import pt.uminho.ceb.biosystems.reg4optfluxsimulation.integratednetwork.methods.
 import pt.uminho.ceb.biosystems.reg4optfluxsimulation.regulatorynetwork.components.RegulatoryNetworkSimulationProperties;
 import pt.uminho.ceb.biosystems.reg4optfluxsimulation.regulatorynetwork.components.RegulatorySimulationMethod;
 import pt.uminho.ceb.biosystems.reg4optfluxsimulation.regulatorynetwork.controlcenters.RegulatoryNetworkSimulationControlCenter;
-import pt.uminho.ceb.biosystems.reg4optfluxsimulation.regulatorynetwork.methods.coupled.BDDAsynchronousStateWithCoupleMetabolicSimulation;
 import pt.uminho.ceb.biosystems.reg4optfluxsimulation.regulatorynetwork.results.IRegulatoryModelSimulationResult;
 
 public class IntegratedSimulationWithCoupledAsynchronousRegulatory extends IntegratedSimulation{
@@ -126,13 +126,13 @@ public class IntegratedSimulationWithCoupledAsynchronousRegulatory extends Integ
 
 		if(getSolverType() == null){
 			Class<?> clazz = SimulationSteadyStateControlCenter.getProblemTypeFromMethod(getMetabolicSimulationMethod());
-			SolverType defaulttype = null;
+			String defaulttype = null;
 			if(LPProblem.class.equals(clazz))
-				defaulttype = SolverType.CLP;
+				defaulttype = CLPSolverBuilder.ID;
 			else if(MILPProblem.class.equals(clazz))
-				defaulttype = SolverType.GLPK;
+				defaulttype = GLPKBinSolverBuilder.ID;
 			else if(QPProblem.class.equals(clazz))
-				defaulttype = SolverType.GLPK;
+				defaulttype = GLPKBinSolverBuilder.ID;
 			simulationControlCenter.setSolver(defaulttype);
 		}
 		else

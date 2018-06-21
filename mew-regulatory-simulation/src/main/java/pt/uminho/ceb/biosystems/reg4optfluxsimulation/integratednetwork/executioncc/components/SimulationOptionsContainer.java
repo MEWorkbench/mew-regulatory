@@ -24,7 +24,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 
 import pt.uminho.ceb.biosystems.mew.core.simulation.components.SimulationProperties;
-import pt.uminho.ceb.biosystems.mew.solvers.SolverType;
+import pt.uminho.ceb.biosystems.mew.solvers.builders.CLPSolverBuilder;
 import pt.uminho.ceb.biosystems.reg4optfluxsimulation.integratednetwork.components.RegulatoryGeneticConditions;
 
 public class SimulationOptionsContainer implements Serializable{
@@ -32,7 +32,7 @@ public class SimulationOptionsContainer implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
-	protected SolverType solver=SolverType.CLP;
+	protected String solver=CLPSolverBuilder.ID;
 	protected String metabolicsimulationmethod=SimulationProperties.FBA;
 	protected HashMap<String, Double> objfunct=null;
 	protected RegulatoryGeneticConditions geneticconditions;
@@ -62,11 +62,11 @@ public class SimulationOptionsContainer implements Serializable{
 	}
 	
 
-	public SolverType getSolver() {
+	public String getSolver() {
 		return solver;
 	}
 
-	public void setSolver(SolverType solver) {
+	public void setSolver(String solver) {
 		this.solver = solver;
 	}
 	

@@ -26,7 +26,6 @@ import java.util.Set;
 
 import pt.uminho.ceb.biosystems.mew.core.model.components.EnvironmentalConditions;
 import pt.uminho.ceb.biosystems.mew.core.model.steadystatemodel.ISteadyStateModel;
-import pt.uminho.ceb.biosystems.mew.solvers.SolverType;
 import pt.uminho.ceb.biosystems.reg4optfluxsimulation.integratednetwork.components.IntegratedSimulationMethod;
 import pt.uminho.ceb.biosystems.reg4optfluxsimulation.integratednetwork.components.RegulatoryGeneticConditions;
 import pt.uminho.ceb.biosystems.reg4optfluxsimulation.integratednetwork.components.RegulatorySimulationProperties;
@@ -48,7 +47,7 @@ public class IntegratedSimulationControlCenter extends TwoStepIntegratedSimulati
 			RegulatoryGeneticConditions geneticConditions,
 			String methodType, 
 			boolean isMaximization, 
-			SolverType solver,
+			String solver,
 			String metabolicsimulationmethod,
 			RegulatorySimulationMethod regulatorysimulationmethod){
 		super(model, environmentalConditions, geneticConditions, methodType, isMaximization, solver);
@@ -61,7 +60,7 @@ public class IntegratedSimulationControlCenter extends TwoStepIntegratedSimulati
 			EnvironmentalConditions environmentalConditions,
 			RegulatoryGeneticConditions geneticConditions,
 			boolean isMaximization,
-			SolverType solver,
+			String solver,
 			String metabolicsimulationmethod,
 			RegulatorySimulationMethod regulatorysimulationmethod) {
 		super(model, environmentalConditions, geneticConditions, IntegratedSimulationMethod.INTEGRATEDSIMULATION.getName(), isMaximization, solver);

@@ -34,7 +34,6 @@ import pt.uminho.ceb.biosystems.mew.core.simulation.components.GeneChangesList;
 import pt.uminho.ceb.biosystems.mew.core.simulation.components.GeneticConditions;
 import pt.uminho.ceb.biosystems.mew.core.simulation.components.SimulationProperties;
 import pt.uminho.ceb.biosystems.mew.core.simulation.components.SteadyStateSimulationResult;
-import pt.uminho.ceb.biosystems.mew.solvers.SolverType;
 import pt.uminho.ceb.biosystems.mew.utilities.datastructures.map.indexedhashmap.IndexedHashMap;
 import pt.uminho.ceb.biosystems.reg4optfluxcore.integratedmodel.components.IntegratedNetworkInitialStateContainer;
 import pt.uminho.ceb.biosystems.reg4optfluxcore.integratedmodel.model.IIntegratedStedystateModel;
@@ -91,7 +90,7 @@ public abstract class AbstractIntegratedSimulationControlCenter extends Abstract
 			RegulatoryGeneticConditions geneticConditions, 
 			String methodType,
 			boolean isMaximization,
-			SolverType solver 
+			String solver 
 			) {
 		super(environmentalConditions, geneticConditions, model, methodType);
 		setMaximization(isMaximization);
@@ -126,7 +125,7 @@ public abstract class AbstractIntegratedSimulationControlCenter extends Abstract
 	}
 	
 	
-	public void setSolver(SolverType solverType){
+	public void setSolver(String solverType){
 		addProperty(RegulatorySimulationProperties.SOLVER, solverType);	
 	}
 	

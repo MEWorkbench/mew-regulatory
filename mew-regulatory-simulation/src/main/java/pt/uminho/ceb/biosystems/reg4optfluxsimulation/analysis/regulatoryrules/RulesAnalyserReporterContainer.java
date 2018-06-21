@@ -248,7 +248,7 @@ public class RulesAnalyserReporterContainer {
 					   environment.associate(id, new BooleanValue(true));
 			   }
 		   
-			   return react.getRule().evaluate(environment).getBooleanValue();
+			   return (Boolean)react.getRule().evaluate(environment).getValue();
 		   }
 		   return true;
 	   }
@@ -264,7 +264,7 @@ public class RulesAnalyserReporterContainer {
 				    environment.associate(rulelements.getKeyAt(i), new BooleanValue(rulelements.getValueAt(i)));
 			   }
 		   
-			   return regrule.getBooleanRule().evaluate(environment).getBooleanValue();
+			   return (Boolean)regrule.getBooleanRule().evaluate(environment).getValue();
 		   }
 		   return true;
 	   }

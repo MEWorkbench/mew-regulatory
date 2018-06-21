@@ -37,7 +37,6 @@ import pt.ornrocha.logutils.messagecomponents.LogMessageCenter;
 import pt.uminho.ceb.biosystems.mew.core.model.components.EnvironmentalConditions;
 import pt.uminho.ceb.biosystems.mew.core.simulation.components.FluxValueMap;
 import pt.uminho.ceb.biosystems.mew.core.simulation.components.GeneChangesList;
-import pt.uminho.ceb.biosystems.mew.solvers.SolverType;
 import pt.uminho.ceb.biosystems.reg4optfluxcore.integratedmodel.model.IIntegratedStedystateModel;
 import pt.uminho.ceb.biosystems.reg4optfluxsimulation.integratednetwork.components.GeneregulatorychangesList;
 import pt.uminho.ceb.biosystems.reg4optfluxsimulation.integratednetwork.components.IntegratedSimulationMethod;
@@ -71,7 +70,7 @@ public class CriticalRegulatoryGenes implements Serializable,IExecutionKiller{
 	protected String biomassFlux;
 	protected FluxValueMap wildTypeFluxes = null;
 	protected double wildtypebiomassflux;
-	protected SolverType solvertype;
+	protected String solvertype;
 	protected VariablesStateContainer vars = null;
 	protected boolean debug = true;
 	protected int CurrentIteration = 0;
@@ -266,7 +265,7 @@ public class CriticalRegulatoryGenes implements Serializable,IExecutionKiller{
 	}
 
 
-	public void setSolver(SolverType solver) {
+	public void setSolver(String solver) {
 		center.setSolver(solver);
 	}
 

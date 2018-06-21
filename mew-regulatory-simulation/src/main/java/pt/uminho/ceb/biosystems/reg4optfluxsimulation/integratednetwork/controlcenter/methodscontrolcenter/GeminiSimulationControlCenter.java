@@ -26,7 +26,6 @@ import java.util.LinkedHashMap;
 import jbiclustge.datatools.expressiondata.dataset.ExpressionData;
 import pt.uminho.ceb.biosystems.mew.core.model.components.EnvironmentalConditions;
 import pt.uminho.ceb.biosystems.mew.core.model.steadystatemodel.ISteadyStateModel;
-import pt.uminho.ceb.biosystems.mew.solvers.SolverType;
 import pt.uminho.ceb.biosystems.reg4optfluxsimulation.integratednetwork.components.IntegratedSimulationMethod;
 import pt.uminho.ceb.biosystems.reg4optfluxsimulation.integratednetwork.components.RegulatoryGeneticConditions;
 import pt.uminho.ceb.biosystems.reg4optfluxsimulation.integratednetwork.components.RegulatorySimulationProperties;
@@ -42,14 +41,14 @@ public class GeminiSimulationControlCenter extends PromSimulationControlCenter{
 	private static final long serialVersionUID = 1L;
 
 	public GeminiSimulationControlCenter(ISteadyStateModel model, EnvironmentalConditions environmentalConditions,
-			RegulatoryGeneticConditions geneticConditions, SolverType solver, ExpressionData expressiondataset,
+			RegulatoryGeneticConditions geneticConditions, String solver, ExpressionData expressiondataset,
 			ArrayList<String> regulators, ArrayList<String> targets) {
 		super(model, environmentalConditions, geneticConditions, solver, expressiondataset, regulators, targets,IntegratedSimulationMethod.GEMINI.getName());
 	}
 
 
 	public GeminiSimulationControlCenter(ISteadyStateModel model, EnvironmentalConditions environmentalConditions,
-			RegulatoryGeneticConditions geneticConditions, SolverType solver, String expressionfile,
+			RegulatoryGeneticConditions geneticConditions, String solver, String expressionfile,
 			ArrayList<String> regulators, ArrayList<String> targets) {
 		super(model, environmentalConditions, geneticConditions, solver, expressionfile, regulators, targets,IntegratedSimulationMethod.GEMINI.getName());
 	}

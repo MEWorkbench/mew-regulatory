@@ -35,7 +35,7 @@ import pt.uminho.ceb.biosystems.mew.core.simulation.components.GeneticConditions
 import pt.uminho.ceb.biosystems.mew.core.simulation.components.SimulationProperties;
 import pt.uminho.ceb.biosystems.mew.core.simulation.components.SimulationSteadyStateControlCenter;
 import pt.uminho.ceb.biosystems.mew.core.simulation.components.SteadyStateSimulationResult;
-import pt.uminho.ceb.biosystems.mew.solvers.SolverType;
+import pt.uminho.ceb.biosystems.mew.solvers.builders.GLPKBinSolverBuilder;
 import pt.uminho.ceb.biosystems.mew.utilities.datastructures.map.indexedhashmap.IndexedHashMap;
 import pt.uminho.ceb.biosystems.reg4optfluxcore.container.components.RegulatoryModelComponent;
 import pt.uminho.ceb.biosystems.reg4optfluxcore.integratedmodel.model.IIntegratedStedystateModel;
@@ -64,7 +64,7 @@ public class OptimizeRegulatoryModel {
 	private int cyclestart=0;
 	private ArrayList<String> alwaysgeneoff;
 	private SteadyStateSimulationResult fbasimul;
-	private SolverType solver=SolverType.GLPK;
+	private String solver=GLPKBinSolverBuilder.ID;
 	
 	private IndexedHashMap<String, Boolean> currentgenestate;
 	private IndexedHashMap<String, Boolean> currentvarsstate;
@@ -96,7 +96,7 @@ public class OptimizeRegulatoryModel {
 			this.objfunct=objfunct;
 	}
 	
-	  public void setSolver(SolverType solver){
+	  public void setSolver(String solver){
 		  if(solver!=null)
 	    	this.solver=solver;
 	    }
@@ -385,7 +385,7 @@ public class OptimizeRegulatoryModel {
 	}
 	
 	
-	public static RFBAOptimizationSolution runOptimization(IIntegratedStedystateModel model,EnvironmentalConditions envconds,HashSet<String> inittruegenes, HashSet<String> knockoutgenes,Map<String, Boolean> initregulatoryvariablesstate, Map<String, Double> objfunct,SolverType solvertype) throws Exception{
+	public static RFBAOptimizationSolution runOptimization(IIntegratedStedystateModel model,EnvironmentalConditions envconds,HashSet<String> inittruegenes, HashSet<String> knockoutgenes,Map<String, Boolean> initregulatoryvariablesstate, Map<String, Double> objfunct,String solvertype) throws Exception{
 		OptimizeRegulatoryModel optm=new OptimizeRegulatoryModel(model, envconds,inittruegenes,knockoutgenes, initregulatoryvariablesstate);
 		optm.setObjectiveFunction(objfunct);
 		optm.setSolver(solvertype);

@@ -33,7 +33,6 @@ import pt.uminho.ceb.biosystems.mew.core.simulation.components.SimulationPropert
 import pt.uminho.ceb.biosystems.mew.core.simulation.formulations.exceptions.ManagerExceptionUtils;
 import pt.uminho.ceb.biosystems.mew.core.simulation.formulations.exceptions.MandatoryPropertyException;
 import pt.uminho.ceb.biosystems.mew.core.simulation.formulations.exceptions.PropertyCastException;
-import pt.uminho.ceb.biosystems.mew.solvers.SolverType;
 import pt.uminho.ceb.biosystems.reg4optfluxcore.integratedmodel.components.IntegratedNetworkInitialStateContainer;
 import pt.uminho.ceb.biosystems.reg4optfluxsimulation.integratednetwork.components.IIntegratedSteadyStateSimulationMethod;
 import pt.uminho.ceb.biosystems.reg4optfluxsimulation.integratednetwork.components.RegulatoryGeneticConditions;
@@ -233,12 +232,12 @@ public abstract class AbstractTwoStepIntegratedSimulation implements IIntegrated
 		this.propertiesmap.putAll(properties);
 	}
 	
-	public void setSolver(SolverType solver){
+	public void setSolver(String solver){
 		setProperty(RegulatorySimulationProperties.SOLVER, solver);
 	}
 	
-    public SolverType getSolverType()throws PropertyCastException, MandatoryPropertyException {
-		return (SolverType) ManagerExceptionUtils.testCast(propertiesmap, SolverType.class, RegulatorySimulationProperties.SOLVER, true);
+    public String getSolverType()throws PropertyCastException, MandatoryPropertyException {
+		return (String) ManagerExceptionUtils.testCast(propertiesmap, String.class, RegulatorySimulationProperties.SOLVER, true);
 	}
 	
 

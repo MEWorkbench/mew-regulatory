@@ -294,7 +294,7 @@ public class OptFluxSynchronousBooleanSimulation extends AbstractRegulatoryNetwo
 		for (int i = 0; i < model.getNumberOfRegulatoryRules(); i++) {
 			RegulatoryRule rule = ((IOptfluxRegulatoryModel)model).getRegulatoryRule(i);
 			if (rule.getBooleanRule().getRootNode() != null) {
-				boolean value = rule.getBooleanRule().evaluate(environment).getBooleanValue();
+				boolean value = (Boolean)rule.getBooleanRule().evaluate(environment).getValue();
 				iteration.add(value);
 
 			} else{

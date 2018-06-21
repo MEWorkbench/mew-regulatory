@@ -28,16 +28,15 @@ import java.util.Map;
 import java.util.Set;
 
 import pt.ornrocha.logutils.messagecomponents.LogMessageCenter;
-import pt.ornrocha.printutils.MTUPrintUtils;
 import pt.uminho.ceb.biosystems.mew.core.model.steadystatemodel.ISteadyStateModel;
 import pt.uminho.ceb.biosystems.mew.core.simulation.components.GeneChangesList;
-import pt.uminho.ceb.biosystems.mew.core.simulation.components.GeneticConditions;
 import pt.uminho.ceb.biosystems.mew.core.simulation.components.SimulationSteadyStateControlCenter;
 import pt.uminho.ceb.biosystems.mew.core.simulation.components.SteadyStateSimulationResult;
 import pt.uminho.ceb.biosystems.mew.core.simulation.formulations.exceptions.ManagerExceptionUtils;
 import pt.uminho.ceb.biosystems.mew.core.simulation.formulations.exceptions.MandatoryPropertyException;
 import pt.uminho.ceb.biosystems.mew.core.simulation.formulations.exceptions.PropertyCastException;
-import pt.uminho.ceb.biosystems.mew.solvers.SolverType;
+import pt.uminho.ceb.biosystems.mew.solvers.builders.CLPSolverBuilder;
+import pt.uminho.ceb.biosystems.mew.solvers.builders.GLPKBinSolverBuilder;
 import pt.uminho.ceb.biosystems.mew.solvers.lp.LPProblem;
 import pt.uminho.ceb.biosystems.mew.solvers.lp.MILPProblem;
 import pt.uminho.ceb.biosystems.mew.solvers.qp.QPProblem;
@@ -289,13 +288,13 @@ public class IntegratedSimulation extends AbstractTwoStepIntegratedSimulation im
 
 			if(getSolverType() == null){
 				Class<?> clazz = SimulationSteadyStateControlCenter.getProblemTypeFromMethod(getMetabolicSimulationMethod());
-				SolverType defaulttype = null;
+				String defaulttype = null;
 				if(LPProblem.class.equals(clazz))
-					defaulttype = SolverType.CLP;
+					defaulttype = CLPSolverBuilder.ID;
 				else if(MILPProblem.class.equals(clazz))
-					defaulttype = SolverType.GLPK;
+					defaulttype = GLPKBinSolverBuilder.ID;
 				else if(QPProblem.class.equals(clazz))
-					defaulttype = SolverType.GLPK;
+					defaulttype = GLPKBinSolverBuilder.ID;
 				simulationControlCenter.setSolver(defaulttype);
 			}
 			else

@@ -40,7 +40,7 @@ import pt.uminho.ceb.biosystems.mew.core.simulation.components.GeneticConditions
 import pt.uminho.ceb.biosystems.mew.core.simulation.components.SimulationProperties;
 import pt.uminho.ceb.biosystems.mew.core.simulation.components.SimulationSteadyStateControlCenter;
 import pt.uminho.ceb.biosystems.mew.core.simulation.components.SteadyStateSimulationResult;
-import pt.uminho.ceb.biosystems.mew.solvers.SolverType;
+import pt.uminho.ceb.biosystems.mew.solvers.builders.GLPKBinSolverBuilder;
 import pt.uminho.ceb.biosystems.mew.solvers.lp.LPSolutionType;
 import pt.uminho.ceb.biosystems.mew.utilities.datastructures.map.indexedhashmap.IndexedHashMap;
 import pt.uminho.ceb.biosystems.mew.utilities.grammar.syntaxtree.Environment;
@@ -78,7 +78,7 @@ public class BooleanRegulatoryModelSolver {
 	protected IndexedHashMap<String, Boolean> possibleTfsLinkedTogenes=null;
     protected IndexedHashMap<String, Boolean> nextvariablesbooleanstate= null;
     protected boolean usertfsinitstate=false;
-	private SolverType solver=SolverType.GLPK;
+	private String solver=GLPKBinSolverBuilder.ID;
 	
 	boolean debug=false;
 	
@@ -109,7 +109,7 @@ public class BooleanRegulatoryModelSolver {
 			this.objfunct=objfunct;
 	}
 	
-	 public void setSolver(SolverType solver){
+	 public void setSolver(String solver){
 	    	this.solver=solver;
 	    }
 
@@ -359,7 +359,7 @@ public class BooleanRegulatoryModelSolver {
 			
 			if (rule.getBooleanRule().getRootNode() != null && !rule.getRule().isEmpty()) {
 				
-				boolean value = rule.getBooleanRule().evaluate(environment).getBooleanValue();
+				boolean value = (Boolean)rule.getBooleanRule().evaluate(environment).getValue();
 				finalgenestates.put(geneid, value);
 
 			}
@@ -434,7 +434,7 @@ public class BooleanRegulatoryModelSolver {
 		return solver.getBooleanSolutionOfGenesAndVariables(returnonlygenestate);
 	}
 	
-	public static Pair<IndexedHashMap<String, Boolean>, IndexedHashMap<String, Boolean>> solve(IIntegratedStedystateModel integratedmodel, EnvironmentalConditions envconds,IndexedHashMap<String, Boolean> genestate, IndexedHashMap<String, Boolean> varstate, boolean returnonlygenestate, Map<String, Double> objfunct, SolverType solvertype) throws Exception{
+	public static Pair<IndexedHashMap<String, Boolean>, IndexedHashMap<String, Boolean>> solve(IIntegratedStedystateModel integratedmodel, EnvironmentalConditions envconds,IndexedHashMap<String, Boolean> genestate, IndexedHashMap<String, Boolean> varstate, boolean returnonlygenestate, Map<String, Double> objfunct, String solvertype) throws Exception{
 		BooleanRegulatoryModelSolver solver=new BooleanRegulatoryModelSolver(integratedmodel,envconds, genestate,varstate);
 		solver.setObjectiveFunction(objfunct);
 		solver.setSolver(solvertype);

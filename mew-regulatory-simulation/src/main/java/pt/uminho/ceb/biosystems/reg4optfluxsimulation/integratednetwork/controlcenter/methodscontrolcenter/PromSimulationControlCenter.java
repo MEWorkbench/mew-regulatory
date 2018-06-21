@@ -33,7 +33,6 @@ import com.google.common.collect.Multimap;
 import jbiclustge.datatools.expressiondata.dataset.ExpressionData;
 import pt.uminho.ceb.biosystems.mew.core.model.components.EnvironmentalConditions;
 import pt.uminho.ceb.biosystems.mew.core.model.steadystatemodel.ISteadyStateModel;
-import pt.uminho.ceb.biosystems.mew.solvers.SolverType;
 import pt.uminho.ceb.biosystems.reg4optfluxsimulation.integratednetwork.components.IntegratedSimulationMethod;
 import pt.uminho.ceb.biosystems.reg4optfluxsimulation.integratednetwork.components.RegulatoryGeneticConditions;
 import pt.uminho.ceb.biosystems.reg4optfluxsimulation.integratednetwork.components.RegulatorySimulationProperties;
@@ -48,7 +47,7 @@ public class PromSimulationControlCenter extends AbstractIntegratedSimulationCon
 	public PromSimulationControlCenter(ISteadyStateModel model, 
 			EnvironmentalConditions environmentalConditions,
 			RegulatoryGeneticConditions geneticConditions,
-			SolverType solver,
+			String solver,
 			ExpressionData expressiondataset,
 			ArrayList<String> regulators,
 			ArrayList<String> targets
@@ -64,7 +63,7 @@ public class PromSimulationControlCenter extends AbstractIntegratedSimulationCon
 	public PromSimulationControlCenter(ISteadyStateModel model, 
 			EnvironmentalConditions environmentalConditions,
 			RegulatoryGeneticConditions geneticConditions,
-			SolverType solver,
+			String solver,
 			String expressionfile,
 			ArrayList<String> regulators,
 			ArrayList<String> targets
@@ -78,7 +77,7 @@ public class PromSimulationControlCenter extends AbstractIntegratedSimulationCon
 	public PromSimulationControlCenter(ISteadyStateModel model, 
 			EnvironmentalConditions environmentalConditions,
 			RegulatoryGeneticConditions geneticConditions,
-			SolverType solver,
+			String solver,
 			ExpressionData expressiondataset,
 			Multimap<String, String> regulatortargetmap) {
 		super(model, environmentalConditions, geneticConditions, IntegratedSimulationMethod.PROM.getName(), true, solver);
@@ -91,7 +90,7 @@ public class PromSimulationControlCenter extends AbstractIntegratedSimulationCon
 	protected PromSimulationControlCenter(ISteadyStateModel model, 
 			EnvironmentalConditions environmentalConditions,
 			RegulatoryGeneticConditions geneticConditions,
-			SolverType solver,
+			String solver,
 			ExpressionData expressiondataset,
 			ArrayList<String> regulators,
 			ArrayList<String> targets,
@@ -108,7 +107,7 @@ public class PromSimulationControlCenter extends AbstractIntegratedSimulationCon
 	protected PromSimulationControlCenter(ISteadyStateModel model, 
 			EnvironmentalConditions environmentalConditions,
 			RegulatoryGeneticConditions geneticConditions,
-			SolverType solver,
+			String solver,
 			String expressionfile,
 			ArrayList<String> regulators,
 			ArrayList<String> targets,

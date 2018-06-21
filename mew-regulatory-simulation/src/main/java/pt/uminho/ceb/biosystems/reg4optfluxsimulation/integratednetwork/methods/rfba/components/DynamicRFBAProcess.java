@@ -39,7 +39,7 @@ import pt.uminho.ceb.biosystems.mew.core.simulation.components.GeneticConditions
 import pt.uminho.ceb.biosystems.mew.core.simulation.components.SimulationProperties;
 import pt.uminho.ceb.biosystems.mew.core.simulation.components.SimulationSteadyStateControlCenter;
 import pt.uminho.ceb.biosystems.mew.core.simulation.components.SteadyStateSimulationResult;
-import pt.uminho.ceb.biosystems.mew.solvers.SolverType;
+import pt.uminho.ceb.biosystems.mew.solvers.builders.GLPKBinSolverBuilder;
 import pt.uminho.ceb.biosystems.mew.solvers.lp.LPSolutionType;
 import pt.uminho.ceb.biosystems.mew.utilities.datastructures.map.indexedhashmap.IndexedHashMap;
 import pt.uminho.ceb.biosystems.reg4optfluxcore.integratedmodel.model.IIntegratedStedystateModel;
@@ -69,7 +69,7 @@ public class DynamicRFBAProcess {
 	private IndexedHashMap<String, Double> concentrationofexchangefluxesmap;
 
 	private Map<String, Double> objfunct;
-	private SolverType solver=SolverType.GLPK;
+	private String solver=GLPKBinSolverBuilder.ID;
 	
 	
 	// Store Variables
@@ -206,7 +206,7 @@ public class DynamicRFBAProcess {
 		this.initgeneswithtruestate = initgeneswithtruestate;
 	}
 
-    public void setSolver(SolverType solver){
+    public void setSolver(String solver){
     	if(solver!=null)
     		this.solver=solver;
     }

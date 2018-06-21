@@ -24,7 +24,6 @@ import java.util.HashMap;
 
 import pt.uminho.ceb.biosystems.mew.core.model.components.EnvironmentalConditions;
 import pt.uminho.ceb.biosystems.mew.core.model.steadystatemodel.ISteadyStateModel;
-import pt.uminho.ceb.biosystems.mew.solvers.SolverType;
 import pt.uminho.ceb.biosystems.reg4optfluxsimulation.integratednetwork.components.RegulatoryGeneticConditions;
 import pt.uminho.ceb.biosystems.reg4optfluxsimulation.integratednetwork.components.RegulatorySimulationProperties;
 
@@ -38,7 +37,7 @@ public abstract class TwoStepIntegratedSimulationControlCenter extends AbstractI
 
 	public TwoStepIntegratedSimulationControlCenter(ISteadyStateModel model,
 			EnvironmentalConditions environmentalConditions, RegulatoryGeneticConditions geneticConditions,
-			String methodType, boolean isMaximization, SolverType solver) {
+			String methodType, boolean isMaximization, String solver) {
 		super(model, environmentalConditions, geneticConditions, methodType, isMaximization, solver);
 	}
 

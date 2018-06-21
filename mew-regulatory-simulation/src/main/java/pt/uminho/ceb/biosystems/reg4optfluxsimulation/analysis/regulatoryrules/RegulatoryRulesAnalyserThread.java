@@ -26,7 +26,6 @@ import pt.ornrocha.logutils.messagecomponents.LogMessageCenter;
 import pt.uminho.ceb.biosystems.mew.core.criticality.CriticalGenes;
 import pt.uminho.ceb.biosystems.mew.core.model.components.EnvironmentalConditions;
 import pt.uminho.ceb.biosystems.mew.core.simulation.components.FluxValueMap;
-import pt.uminho.ceb.biosystems.mew.solvers.SolverType;
 import pt.uminho.ceb.biosystems.mew.utilities.datastructures.map.indexedhashmap.IndexedHashMap;
 import pt.uminho.ceb.biosystems.reg4optfluxcore.integratedmodel.model.IIntegratedStedystateModel;
 import pt.uminho.ceb.biosystems.reg4optfluxcore.integratedmodel.model.dynamic.DynamicIntegratedModelOptionsContainer;
@@ -111,7 +110,7 @@ public class RegulatoryRulesAnalyserThread implements Runnable{
 		
 		IntegratedSimulationMethod integratedsimumethod=simulationproperties.getSimulationMethod();
 		
-		SolverType solver=simulationproperties.getSolver();
+		String solver=simulationproperties.getSolver();
 		RegulatoryGeneticConditions geneconditions=simulationproperties.getGeneticconditions();
 		
 	

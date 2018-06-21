@@ -25,7 +25,6 @@ import java.util.LinkedHashMap;
 
 import pt.uminho.ceb.biosystems.mew.core.model.components.EnvironmentalConditions;
 import pt.uminho.ceb.biosystems.mew.core.model.steadystatemodel.ISteadyStateModel;
-import pt.uminho.ceb.biosystems.mew.solvers.SolverType;
 import pt.uminho.ceb.biosystems.reg4optfluxsimulation.integratednetwork.components.IntegratedSimulationMethod;
 import pt.uminho.ceb.biosystems.reg4optfluxsimulation.integratednetwork.components.RegulatoryGeneticConditions;
 import pt.uminho.ceb.biosystems.reg4optfluxsimulation.integratednetwork.components.RegulatorySimulationProperties;
@@ -41,7 +40,7 @@ public class SRFBAControlCenter extends AbstractIntegratedSimulationControlCente
 
 	public SRFBAControlCenter(ISteadyStateModel model, EnvironmentalConditions environmentalConditions,
 			RegulatoryGeneticConditions geneticConditions, boolean isMaximization,
-			SolverType solver) {
+			String solver) {
 		super(model, environmentalConditions, geneticConditions, IntegratedSimulationMethod.SRFBA.getName(), isMaximization, solver);
 
 	}
