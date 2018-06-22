@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>pt.uminho.ceb.biosystems</groupId>
 		<artifactId>mew-regulatory</artifactId>
-		<version>${meworkbench.version}</version>
+		<version>3.0.0</version>
 	</parent>
 	<artifactId>mew-regulatory-simulation</artifactId>
 	<name>mew-regulatory-simulation</name>
@@ -23,7 +23,7 @@
 		<dependency>
 			<groupId>pt.uminho.ceb.biosystems</groupId>
 			<artifactId>mew-regulatory-core</artifactId>
-			<version>${meworkbench.version}</version>
+			<version>3.0.0</version>
 		</dependency>
 	</dependencies>
 
