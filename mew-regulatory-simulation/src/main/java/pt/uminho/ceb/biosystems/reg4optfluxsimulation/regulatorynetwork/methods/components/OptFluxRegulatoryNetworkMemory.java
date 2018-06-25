@@ -54,10 +54,10 @@ public class OptFluxRegulatoryNetworkMemory implements INetworkMemory{
 	
 	private boolean saveattractorstatespace=false;
 	
-	/**
-	 * @param sim the <code>BooleanNetworkSimulation</code> that contains the network to be queued. 
-	 * @throws Exception 
-	 */
+//	/**
+//	 * @param sim the <code>BooleanNetworkSimulation</code> that contains the network to be queued. 
+//	 * @throws Exception 
+//	 */
 	public OptFluxRegulatoryNetworkMemory(int numberiter,ArrayList<Boolean> firstStep, ArrayList<String> orderedgeneidentifiers) throws Exception{
 		capacity=numberiter;
 		statememory = new ArrayList<ArrayList<Boolean>>();
@@ -161,7 +161,7 @@ public class OptFluxRegulatoryNetworkMemory implements INetworkMemory{
 	 * Search for repeated sets of values within the queue.
 	 * 
 	 * @return i the length of the detected cycle or -1 if no cycles detected.
-	 * @throws Exception 
+	 * @throws Exception exception
 	 */
 	public int checkRedundancy() throws Exception {
 		
@@ -231,9 +231,9 @@ public class OptFluxRegulatoryNetworkMemory implements INetworkMemory{
 		return iterations;
 	}
 
-	/**
-	 * @param iterations the iterations to set
-	 */
+//	/**
+//	 * @param iterations the iterations to set
+//	 */
 	public void addIteration() {
 		this.iterations++;
 	}

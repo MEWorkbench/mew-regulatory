@@ -172,13 +172,13 @@ public class RegulatoryGeneKnockoutOptimizationControlCenter {
 	}
 	
 	
-	/**
-	 * <p> Creates a decoder, taking into account if it should use Gene-Protein-Reaction (GPR) information and/or over/under expression approach. </p>
-	 * 
-	 * @param geneOpt uses GPR information if true, doesn't use otherwise 
-	 * @param overUnder uses the over/under expression approach if true, uses the knockout approach otherwise
-	 * @throws Exception if adding not allowed IDs to decoder catches an Exception 
-	 */
+//	/**
+//	 * <p> Creates a decoder, taking into account if it should use Gene-Protein-Reaction (GPR) information and/or over/under expression approach. </p>
+//	 * 
+//	 * @param geneOpt uses GPR information if true, doesn't use otherwise 
+//	 * @param overUnder uses the over/under expression approach if true, uses the knockout approach otherwise
+//	 * @throws Exception if adding not allowed IDs to decoder catches an Exception 
+//	 */
 	public void createDecoder () throws Exception{
 			decoder = new RegulatoryGenesKnockoutDecoder(model,restrictanalysistoregulatorymodel, notAllowedIDs);
 	}
@@ -189,14 +189,14 @@ public class RegulatoryGeneKnockoutOptimizationControlCenter {
 	
     
 	
-	/**
-	 * 
-	 * 
-	 * @param geneOpt
-	 * @param overUnder
-	 * @param maxSetSize
-	 * @return
-	 */
+//	/**
+//	 * 
+//	 * 
+//	 * @param geneOpt
+//	 * @param overUnder
+//	 * @param maxSetSize
+//	 * @return
+//	 */
 	public ISolutionFactory<?> createSolutionFactory (int maxSetSize){
 		
 		int maxSetValue = decoder.getNumberVariables();
