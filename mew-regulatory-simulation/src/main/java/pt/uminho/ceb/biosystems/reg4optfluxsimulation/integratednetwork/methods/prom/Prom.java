@@ -86,13 +86,6 @@ import smile.stat.hypothesis.KSTest;
 
 /**
  * 
- * @startuml
- * 
- * 
- * 
- * 
- * 
- * @enduml
  */
 
 

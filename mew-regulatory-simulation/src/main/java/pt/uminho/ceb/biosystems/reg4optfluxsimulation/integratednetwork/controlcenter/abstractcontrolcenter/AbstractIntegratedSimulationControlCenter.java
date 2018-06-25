@@ -71,17 +71,18 @@ public abstract class AbstractIntegratedSimulationControlCenter extends Abstract
 	
 	protected abstract LinkedHashMap<String, Class<?>> getMethodsSupportedByControlCenter();
 
-	/**
-	 * Instantiates a new integrated simulation control center.
-	 *
-	 * @param environmentalConditions the environmental conditions
-	 * @param geneticConditions the genetic conditions
-	 * @param model the model
-	 * @param methodType the method type
-	 * @param metabolimethodtype the metabolimethodtype
-	 * @param variables the variables
-	 * @param falsenodes the falsenodes
-	 */
+//	FIXME: JAVADOC
+//	/**
+//	 * Instantiates a new integrated simulation control center.
+//	 *
+//	 * @param environmentalConditions the environmental conditions
+//	 * @param geneticConditions the genetic conditions
+//	 * @param model the model
+//	 * @param methodType the method type
+//	 * @param metabolimethodtype the metabolimethodtype
+//	 * @param variables the variables
+//	 * @param falsenodes the falsenodes
+//	 */
 	
 	
 	public AbstractIntegratedSimulationControlCenter(

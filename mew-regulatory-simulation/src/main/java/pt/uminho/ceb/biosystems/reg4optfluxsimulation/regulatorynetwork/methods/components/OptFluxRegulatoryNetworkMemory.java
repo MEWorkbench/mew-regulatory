@@ -91,8 +91,8 @@ public class OptFluxRegulatoryNetworkMemory implements INetworkMemory{
 	/**
 	 * Inserts a new set of values at the top of the queue.
 	 * 
-	 * @param n the new set of values
-	 * @throws Exception 
+	 * @param exp the new set of values
+	 * @throws Exception exception
 	 */
 	public void addState(ArrayList<Boolean> exp) throws Exception{
 
@@ -238,11 +238,11 @@ public class OptFluxRegulatoryNetworkMemory implements INetworkMemory{
 		this.iterations++;
 	}
 	
-	/**
-	 * Clears the <code>NetworkMemory</code>.
-	 * 
-	 * @return the free memory in the JVM.
-	 */
+//	/**
+//	 * Clears the <code>NetworkMemory</code>.
+//	 * 
+//	 * @return the free memory in the JVM.
+//	 */
 //	public long clearMemory(){
 //		memory = null;
 //		System.gc(); //NOTE: Force the garbage collector to run now.		 

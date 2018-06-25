@@ -69,7 +69,7 @@ public abstract class AbstractTwoStepIntegratedSimulation implements IIntegrated
  /**
   * Instantiates a new abstract two step integrated simulation.
   *
-  * @param ISteadyStateModel  model
+  * @param model  steady state model
   */
  public AbstractTwoStepIntegratedSimulation(ISteadyStateModel model){
 		this.integratedmodel = model;
