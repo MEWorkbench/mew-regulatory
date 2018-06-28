@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>pt.uminho.ceb.biosystems</groupId>
   <artifactId>mew-regulatory</artifactId>
-  <version>3.0.0</version>
+  <version>${meworkbench.version}</version>
   <name>mew-regulatory</name>
   <description>Regulatory features for optflux</description>
   <packaging>pom</packaging>
