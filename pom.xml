@@ -5,12 +5,35 @@
   <version>${meworkbench.version}</version>
   <name>mew-regulatory</name>
   <description>Regulatory features for optflux</description>
+  <url>https://github.com/MEWorkbench/regulatory</url>
+  
   <packaging>pom</packaging>
   <modules>
   	<module>mew-regulatory-core</module>
   	<module>mew-regulatory-simulation</module>
   	<module>mew-regulatory-optimization</module>
   </modules>
+  
+  <developers>
+		<developer>
+			<name>Orlando Rocha</name>
+			<email>ornrocha@gmail.com</email>
+		</developer>
+	</developers>
+	
+	<licenses>
+		<license>
+			<name>LGPLv2.1</name>
+			<url>https://www.gnu.org/licenses/lgpl-2.1.html</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<scm>
+		<developerConnection>scm:git:git@github.com:MEWorkbench/mew-regulatory.git</developerConnection>
+		<url>https://github.com/MEWorkbench/mew-regulatory</url>
+		<tag>HEAD</tag>
+	</scm>
   
   <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
