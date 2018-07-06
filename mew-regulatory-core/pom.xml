@@ -60,7 +60,7 @@
 		<dependency>
 			<groupId>pt.uminho.ceb.biosystems</groupId>
 			<artifactId>reg4optflux-boolutils</artifactId>
-			<version>1.0.0</version>
+			<version>1.1.0</version>
 		</dependency>
 		<dependency>
 			<groupId>pt.uminho.ceb.biosystems.mew</groupId>
@@ -75,7 +75,7 @@
 		<dependency>
 			<groupId>pt.uminho.ceb.biosystems</groupId>
 			<artifactId>JBiclustGE-datatools</artifactId>
-			<version>1.0.1-mew-regulatory</version>
+			<version>1.0.2-mew-regulatory</version>
 		</dependency>
 		<dependency>
 			<groupId>org.colomoto</groupId>
